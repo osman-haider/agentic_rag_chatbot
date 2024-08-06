@@ -267,3 +267,1416 @@ result = {'type': 'plot', 'value': plot_filename}
 2024-08-01 02:34:09 [INFO] Executing Step 7: ResultValidation
 2024-08-01 02:34:09 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
 2024-08-01 02:34:09 [INFO] Executing Step 8: ResultParsing
+2024-08-01 15:20:30 [INFO] Question: how many columns in this dataset?
+2024-08-01 15:20:30 [INFO] Running PandasAI with openai LLM...
+2024-08-01 15:20:30 [INFO] Prompt ID: ba5d4a9f-5221-4e22-bdc0-b6355213ad76
+2024-08-01 15:20:30 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-01 15:20:30 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-01 15:20:30 [INFO] Executing Step 1: CacheLookup
+2024-08-01 15:20:30 [INFO] Using cached response
+2024-08-01 15:20:30 [INFO] Executing Step 2: PromptGeneration
+2024-08-01 15:20:30 [INFO] Executing Step 2: Skipping...
+2024-08-01 15:20:30 [INFO] Executing Step 3: CodeGenerator
+2024-08-01 15:20:30 [INFO] Executing Step 3: Skipping...
+2024-08-01 15:20:30 [INFO] Executing Step 4: CachePopulation
+2024-08-01 15:20:30 [INFO] Executing Step 4: Skipping...
+2024-08-01 15:20:30 [INFO] Executing Step 5: CodeCleaning
+2024-08-01 15:20:30 [INFO] 
+Code running:
+```
+num_columns = dfs[0].shape[1]
+result = {'type': 'number', 'value': num_columns}
+        ```
+2024-08-01 15:20:30 [INFO] Executing Step 6: CodeExecution
+2024-08-01 15:20:30 [INFO] Executing Step 7: ResultValidation
+2024-08-01 15:20:30 [INFO] Answer: {'type': 'number', 'value': 13}
+2024-08-01 15:20:30 [INFO] Executing Step 8: ResultParsing
+2024-08-01 15:20:51 [INFO] Question: plot bar graph in type 1 and total column
+2024-08-01 15:20:51 [INFO] Running PandasAI with openai LLM...
+2024-08-01 15:20:51 [INFO] Prompt ID: 83f216fa-e271-41a2-91b2-637775a8a337
+2024-08-01 15:20:51 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-01 15:20:51 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-01 15:20:51 [INFO] Executing Step 1: CacheLookup
+2024-08-01 15:20:51 [INFO] Executing Step 2: PromptGeneration
+2024-08-01 15:20:51 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+213,Fraxure,Dragon,,425,64,56,69,69,85,93,2,False
+565,Tentacruel,Ghost,Rock,600,103,147,47,76,71,51,5,True
+327,Piloswine,Rock,Ghost,680,71,190,116,56,107,31,6,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot bar graph in type 1 and total column
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-01 15:20:51 [INFO] Executing Step 3: CodeGenerator
+2024-08-01 15:21:06 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-01 15:21:06 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+213,Fraxure,Dragon,,425,64,56,69,69,85,93,2,False
+565,Tentacruel,Ghost,Rock,600,103,147,47,76,71,51,5,True
+327,Piloswine,Rock,Ghost,680,71,190,116,56,107,31,6,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot bar graph in type 1 and total column
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-01 15:21:06 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is already defined and contains the DataFrame
+# For demonstration, let's create the DataFrame from the provided data
+data = {
+    'Name': ['Fraxure', 'Tentacruel', 'Piloswine'],
+    'Type 1': ['Dragon', 'Ghost', 'Rock'],
+    'Type 2': [None, 'Rock', 'Ghost'],
+    'Total': [425, 600, 680],
+    'HP': [64, 103, 71],
+    'Attack': [56, 147, 190],
+    'Defense': [69, 47, 116],
+    'Sp. Atk': [69, 76, 56],
+    'Sp. Def': [85, 71, 107],
+    'Speed': [93, 51, 31],
+    'Generation': [2, 5, 6],
+    'Legendary': [False, True, False]
+}
+
+dfs = [pd.DataFrame(data)]
+
+# Extracting the relevant DataFrame
+df = dfs[0]
+
+# Plotting the bar graph for Type 1 and Total
+plt.figure(figsize=(10, 6))
+plt.bar(df['Type 1'], df['Total'], color='skyblue')
+plt.xlabel('Type 1')
+plt.ylabel('Total')
+plt.title('Total by Type 1')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plot_filename = 'type1_total_chart.png'
+plt.savefig(plot_filename)
+plt.close()
+
+# Declare result var: 
+result = {
+    "type": "plot",
+    "value": plot_filename
+}
+            ```
+            
+2024-08-01 15:21:06 [INFO] Executing Step 4: CachePopulation
+2024-08-01 15:21:06 [INFO] Executing Step 5: CodeCleaning
+2024-08-01 15:21:06 [INFO] Saving charts to D:\Mine\Graph-Chat-App\exports\charts\temp_chart.png
+2024-08-01 15:21:06 [INFO] 
+Code running:
+```
+data = {'Name': ['Fraxure', 'Tentacruel', 'Piloswine'], 'Type 1': ['Dragon', 'Ghost', 'Rock'], 'Type 2': [None, 'Rock', 'Ghost'], 'Total': [425, 600, 680], 'HP': [64, 103, 71], 'Attack': [56, 147, 190], 'Defense': [69, 47, 116], 'Sp. Atk': [69, 76, 56], 'Sp. Def': [85, 71, 107], 'Speed': [93, 51, 31], 'Generation': [2, 5, 6], 'Legendary': [False, True, False]}
+df = dfs[0]
+plt.figure(figsize=(10, 6))
+plt.bar(df['Type 1'], df['Total'], color='skyblue')
+plt.xlabel('Type 1')
+plt.ylabel('Total')
+plt.title('Total by Type 1')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plot_filename = 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'
+plt.savefig(plot_filename)
+plt.close()
+result = {'type': 'plot', 'value': plot_filename}
+        ```
+2024-08-01 15:21:06 [INFO] Executing Step 6: CodeExecution
+2024-08-01 15:21:07 [INFO] Executing Step 7: ResultValidation
+2024-08-01 15:21:07 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+2024-08-01 15:21:07 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:11:00 [INFO] Question: how many columns in this dataset?
+2024-08-06 17:11:00 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:11:00 [INFO] Prompt ID: eed81d17-a020-4642-90af-b44546c79199
+2024-08-06 17:11:00 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:11:00 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:11:00 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:11:00 [INFO] Using cached response
+2024-08-06 17:11:00 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:11:00 [INFO] Executing Step 2: Skipping...
+2024-08-06 17:11:00 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:11:00 [INFO] Executing Step 3: Skipping...
+2024-08-06 17:11:00 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:11:00 [INFO] Executing Step 4: Skipping...
+2024-08-06 17:11:00 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:11:00 [INFO] 
+Code running:
+```
+num_columns = dfs[0].shape[1]
+result = {'type': 'number', 'value': num_columns}
+        ```
+2024-08-06 17:11:00 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:11:00 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:11:00 [INFO] Answer: {'type': 'number', 'value': 13}
+2024-08-06 17:11:00 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:11:23 [INFO] Question: plot bar graph on any two columns
+2024-08-06 17:11:23 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:11:23 [INFO] Prompt ID: 6a188045-d19b-4c47-82b6-a642136e5007
+2024-08-06 17:11:23 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:11:23 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:11:23 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:11:23 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:11:23 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+264,Tyrantrum,Water,,615,78,94,55,111,107,72,3,True
+412,Heatran,Ghost,Poison,375,82,45,103,31,41,41,4,True
+704,Lickitung,Poison,Bug,525,123,58,44,98,102,91,5,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot bar graph on any two columns
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 17:11:23 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:11:31 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 17:11:31 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+264,Tyrantrum,Water,,615,78,94,55,111,107,72,3,True
+412,Heatran,Ghost,Poison,375,82,45,103,31,41,41,4,True
+704,Lickitung,Poison,Bug,525,123,58,44,98,102,91,5,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot bar graph on any two columns
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 17:11:31 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is already defined and contains the DataFrame
+# For demonstration, let's create the DataFrame from the provided data
+data = {
+    'Name': ['Tyrantrum', 'Heatran', 'Lickitung'],
+    'Total': [615, 375, 525],
+    'HP': [78, 82, 123]
+}
+dfs = [pd.DataFrame(data)]
+
+# Select the DataFrame to work with
+df = dfs[0]
+
+# Plotting a bar graph for 'Name' vs 'Total'
+plt.figure(figsize=(10, 6))
+plt.bar(df['Name'], df['Total'], color='skyblue')
+plt.xlabel('Pokemon Name')
+plt.ylabel('Total Stats')
+plt.title('Total Stats of Pokemon')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('total_stats_chart.png')
+
+# Declare result var: 
+result = {
+    "type": "plot",
+    "value": "total_stats_chart.png"
+}
+            ```
+            
+2024-08-06 17:11:31 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:11:31 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:11:31 [INFO] Saving charts to D:\Mine\Graph-Chat-App\exports\charts\temp_chart.png
+2024-08-06 17:11:31 [INFO] 
+Code running:
+```
+data = {'Name': ['Tyrantrum', 'Heatran', 'Lickitung'], 'Total': [615, 375, 525], 'HP': [78, 82, 123]}
+df = dfs[0]
+plt.figure(figsize=(10, 6))
+plt.bar(df['Name'], df['Total'], color='skyblue')
+plt.xlabel('Pokemon Name')
+plt.ylabel('Total Stats')
+plt.title('Total Stats of Pokemon')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+        ```
+2024-08-06 17:11:31 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:11:36 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:11:36 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+2024-08-06 17:11:36 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:14:36 [INFO] Question: plot line graph on any two columns
+2024-08-06 17:14:36 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:14:36 [INFO] Prompt ID: 331a1435-729b-4195-a9cb-68cdae5a0875
+2024-08-06 17:14:36 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:14:36 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:14:36 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:14:36 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:14:36 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+375,Mightyena,Psychic,Bug,770,37,108,100,72,95,122,1,False
+599,ScizorMega Scizor,Water,,278,109,150,15,36,154,82,3,True
+23,Zebstrika,Steel,Dragon,500,91,94,103,43,70,46,2,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot line graph on any two columns
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 17:14:36 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:14:46 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 17:14:46 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+375,Mightyena,Psychic,Bug,770,37,108,100,72,95,122,1,False
+599,ScizorMega Scizor,Water,,278,109,150,15,36,154,82,3,True
+23,Zebstrika,Steel,Dragon,500,91,94,103,43,70,46,2,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot line graph on any two columns
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 17:14:46 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is already defined and contains the DataFrame
+# For demonstration, let's create a sample DataFrame similar to the one provided
+data = {
+    'Name': ['Mightyena', 'ScizorMega Scizor', 'Zebstrika'],
+    'Total': [770, 278, 500],
+    'HP': [37, 109, 91],
+    'Attack': [108, 150, 94],
+    'Defense': [100, 15, 103],
+    'Sp. Atk': [72, 36, 43],
+    'Sp. Def': [95, 154, 70],
+    'Speed': [122, 82, 46],
+    'Generation': [1, 3, 2],
+    'Legendary': [False, True, True]
+}
+
+dfs = [pd.DataFrame(data)]
+
+# Select two columns to plot
+x_column = 'Total'
+y_column = 'Attack'
+
+# Plotting the line graph
+plt.figure(figsize=(10, 6))
+plt.plot(dfs[0][x_column], dfs[0][y_column], marker='o')
+plt.title('Line Graph of Total vs Attack')
+plt.xlabel(x_column)
+plt.ylabel(y_column)
+plt.grid()
+plt.xticks(dfs[0][x_column])  # Set x-ticks to the values in the Total column
+plt.savefig('line_graph.png')  # Save the plot as a PNG file
+plt.close()  # Close the plot to free up memory
+
+# Declare result var: 
+result = {
+    "type": "plot",
+    "value": "line_graph.png"
+}
+            ```
+            
+2024-08-06 17:14:46 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:14:46 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:14:46 [INFO] Saving charts to D:\Mine\Graph-Chat-App\exports\charts\temp_chart.png
+2024-08-06 17:14:46 [INFO] 
+Code running:
+```
+data = {'Name': ['Mightyena', 'ScizorMega Scizor', 'Zebstrika'], 'Total': [770, 278, 500], 'HP': [37, 109, 91], 'Attack': [108, 150, 94], 'Defense': [100, 15, 103], 'Sp. Atk': [72, 36, 43], 'Sp. Def': [95, 154, 70], 'Speed': [122, 82, 46], 'Generation': [1, 3, 2], 'Legendary': [False, True, True]}
+x_column = 'Total'
+y_column = 'Attack'
+plt.figure(figsize=(10, 6))
+plt.plot(dfs[0][x_column], dfs[0][y_column], marker='o')
+plt.title('Line Graph of Total vs Attack')
+plt.xlabel(x_column)
+plt.ylabel(y_column)
+plt.grid()
+plt.xticks(dfs[0][x_column])
+plt.savefig('D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png')
+plt.close()
+result = {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+        ```
+2024-08-06 17:14:46 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:14:49 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:14:49 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+2024-08-06 17:14:49 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:15:49 [INFO] Question: plot line graph on any two columns
+2024-08-06 17:15:49 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:15:49 [INFO] Prompt ID: 20472257-cba0-4188-aa7d-1e1172d7b939
+2024-08-06 17:15:49 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:15:49 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:15:49 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:15:49 [INFO] Using cached response
+2024-08-06 17:15:49 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:15:49 [INFO] Executing Step 2: Skipping...
+2024-08-06 17:15:49 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:15:49 [INFO] Executing Step 3: Skipping...
+2024-08-06 17:15:49 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:15:49 [INFO] Executing Step 4: Skipping...
+2024-08-06 17:15:49 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:15:49 [INFO] Saving charts to D:\Mine\Graph-Chat-App\exports\charts\temp_chart.png
+2024-08-06 17:15:49 [INFO] 
+Code running:
+```
+data = {'Name': ['Mightyena', 'ScizorMega Scizor', 'Zebstrika'], 'Total': [770, 278, 500], 'HP': [37, 109, 91], 'Attack': [108, 150, 94], 'Defense': [100, 15, 103], 'Sp. Atk': [72, 36, 43], 'Sp. Def': [95, 154, 70], 'Speed': [122, 82, 46], 'Generation': [1, 3, 2], 'Legendary': [False, True, True]}
+x_column = 'Total'
+y_column = 'Attack'
+plt.figure(figsize=(10, 6))
+plt.plot(dfs[0][x_column], dfs[0][y_column], marker='o')
+plt.title('Line Graph of Total vs Attack')
+plt.xlabel(x_column)
+plt.ylabel(y_column)
+plt.grid()
+plt.xticks(dfs[0][x_column])
+plt.savefig('D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png')
+plt.close()
+result = {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+        ```
+2024-08-06 17:15:49 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:15:51 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:15:51 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+2024-08-06 17:15:51 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:16:21 [INFO] Question: what is the column names?
+2024-08-06 17:16:21 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:16:21 [INFO] Prompt ID: 7355077f-9d3a-45e4-8c9b-f6e15449d852
+2024-08-06 17:16:21 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:16:21 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:16:21 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:16:21 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:16:21 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+484,Jumpluff,Grass,Rock,468,125,41,35,130,76,57,1,True
+355,Volcarona,Ground,,485,170,132,5,61,85,113,4,False
+273,Huntail,Bug,Ground,352,130,15,140,111,101,122,6,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ what is the column names?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 17:16:21 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:16:26 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 17:16:26 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+484,Jumpluff,Grass,Rock,468,125,41,35,130,76,57,1,True
+355,Volcarona,Ground,,485,170,132,5,61,85,113,4,False
+273,Huntail,Bug,Ground,352,130,15,140,111,101,122,6,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ what is the column names?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 17:16:26 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Assuming dfs is already declared and contains DataFrames
+# For example:
+# dfs = [pd.DataFrame(...), ...]
+
+# Get the column names from the first DataFrame
+column_names = dfs[0].columns.tolist()
+
+# Declare result var: 
+result = {
+    "type": "string",
+    "value": f"The column names are: {', '.join(column_names)}."
+}
+
+# Output the result
+print(result)
+            ```
+            
+2024-08-06 17:16:26 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:16:26 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:16:26 [INFO] 
+Code running:
+```
+column_names = dfs[0].columns.tolist()
+result = {'type': 'string', 'value': f"The column names are: {', '.join(column_names)}."}
+print(result)
+        ```
+2024-08-06 17:16:26 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:16:26 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:16:26 [INFO] Answer: {'type': 'string', 'value': 'The column names are: #, Name, Type 1, Type 2, Total, HP, Attack, Defense, Sp. Atk, Sp. Def, Speed, Generation, Legendary.'}
+2024-08-06 17:16:26 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:16:49 [INFO] Question: could you print the head of this data?
+2024-08-06 17:16:49 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:16:49 [INFO] Prompt ID: d54cb342-464e-47a1-966b-7584d5f2434f
+2024-08-06 17:16:49 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:16:49 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:16:49 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:16:49 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:16:49 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+193,PidgeotMega Pidgeot,Normal,Flying,565,46,10,43,95,69,150,2,True
+23,Oshawott,Poison,Fire,318,45,57,123,122,129,115,5,False
+109,Ferroseed,Fairy,,380,77,5,68,69,46,22,1,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ could you print the head of this data?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 17:16:49 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:16:55 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 17:16:55 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+193,PidgeotMega Pidgeot,Normal,Flying,565,46,10,43,95,69,150,2,True
+23,Oshawott,Poison,Fire,318,45,57,123,122,129,115,5,False
+109,Ferroseed,Fairy,,380,77,5,68,69,46,22,1,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ could you print the head of this data?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 17:16:55 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Assuming dfs is already declared and contains the DataFrames
+# For demonstration, let's assume dfs[0] is the DataFrame we want to work with
+# You can uncomment the next line if you have the actual data loaded in dfs
+# dfs = [pd.read_csv('your_data_file.csv')]  # Example of loading data
+
+# Get the head of the first DataFrame in the list
+head_df = dfs[0].head()
+
+# Declare result var: 
+result = {
+    "type": "dataframe",
+    "value": head_df
+}
+
+# Print the result for verification (optional)
+print(result)
+            ```
+            
+2024-08-06 17:16:55 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:16:55 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:16:55 [INFO] 
+Code running:
+```
+head_df = dfs[0].head()
+result = {'type': 'dataframe', 'value': head_df}
+print(result)
+        ```
+2024-08-06 17:16:55 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:16:55 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:16:55 [INFO] Answer: {'type': 'dataframe', 'value':    #                   Name Type 1  Type 2  Total  HP  Attack  Defense  Sp. Atk  Sp. Def  Speed  Generation  Legendary
+0  1              Bulbasaur  Grass  Poison    318  45      49       49       65       65     45           1      False
+1  2                Ivysaur  Grass  Poison    405  60      62       63       80       80     60           1      False
+2  3               Venusaur  Grass  Poison    525  80      82       83      100      100     80           1      False
+3  3  VenusaurMega Venusaur  Grass  Poison    625  80     100      123      122      120     80           1      False
+4  4             Charmander   Fire     NaN    309  39      52       43       60       50     65           1      False}
+2024-08-06 17:16:55 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:19:33 [INFO] Question: could you plot the bar graph on any two columns?
+2024-08-06 17:19:33 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:19:33 [INFO] Prompt ID: 8870e433-4904-4578-be7e-75d3f65e94e9
+2024-08-06 17:19:33 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:19:33 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:19:33 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:19:33 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:19:33 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+640,Mismagius,Fire,Dragon,484,56,23,72,38,89,109,6,True
+251,SwampertMega Swampert,Steel,Electric,428,76,107,160,55,42,65,1,False
+624,Munchlax,Fairy,,610,105,71,59,140,116,55,3,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ could you plot the bar graph on any two columns?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 17:19:33 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:19:43 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 17:19:43 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+640,Mismagius,Fire,Dragon,484,56,23,72,38,89,109,6,True
+251,SwampertMega Swampert,Steel,Electric,428,76,107,160,55,42,65,1,False
+624,Munchlax,Fairy,,610,105,71,59,140,116,55,3,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ could you plot the bar graph on any two columns?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 17:19:43 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is already defined and contains the DataFrame
+# For demonstration, let's use the first DataFrame in the list
+df = dfs[0]
+
+# Select two columns to plot. Here, we'll plot 'Attack' vs 'Defense'
+x = df['Attack']
+y = df['Defense']
+
+# Create a bar graph
+plt.figure(figsize=(10, 6))
+plt.bar(df['Name'], x, color='blue', alpha=0.6, label='Attack')
+plt.bar(df['Name'], y, color='orange', alpha=0.6, label='Defense')
+
+# Adding labels and title
+plt.xlabel('Pokémon Name')
+plt.ylabel('Stats')
+plt.title('Attack and Defense of Pokémon')
+plt.xticks(rotation=45)
+plt.legend()
+
+# Save the plot as a PNG file
+plt.tight_layout()
+plt.savefig('attack_defense_chart.png')
+plt.close()
+
+# Declare result var: 
+result = {
+    "type": "plot",
+    "value": "attack_defense_chart.png"
+}
+            ```
+            
+2024-08-06 17:19:43 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:19:43 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:19:43 [INFO] Saving charts to D:\Mine\Graph-Chat-App\exports\charts\temp_chart.png
+2024-08-06 17:19:43 [INFO] 
+Code running:
+```
+df = dfs[0]
+x = df['Attack']
+y = df['Defense']
+plt.figure(figsize=(10, 6))
+plt.bar(df['Name'], x, color='blue', alpha=0.6, label='Attack')
+plt.bar(df['Name'], y, color='orange', alpha=0.6, label='Defense')
+plt.xlabel('Pokémon Name')
+plt.ylabel('Stats')
+plt.title('Attack and Defense of Pokémon')
+plt.xticks(rotation=45)
+plt.legend()
+plt.tight_layout()
+plt.savefig('D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png')
+plt.close()
+result = {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+        ```
+2024-08-06 17:19:43 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:19:49 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:19:49 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+2024-08-06 17:19:49 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:21:26 [INFO] Question: could you plot the line graph?
+2024-08-06 17:21:26 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:21:26 [INFO] Prompt ID: dd60755e-7e24-489f-9086-a6e67d98bd4e
+2024-08-06 17:21:26 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:21:26 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:21:26 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:21:26 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:21:26 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+49,MeloettaAria Forme,Poison,,414,104,56,50,112,123,33,6,True
+138,Numel,Fairy,Fairy,382,50,29,88,86,41,102,3,False
+498,Togepi,Water,Ice,244,95,51,84,130,107,50,2,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ could you plot the line graph?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 17:21:26 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:21:35 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 17:21:35 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+49,MeloettaAria Forme,Poison,,414,104,56,50,112,123,33,6,True
+138,Numel,Fairy,Fairy,382,50,29,88,86,41,102,3,False
+498,Togepi,Water,Ice,244,95,51,84,130,107,50,2,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ could you plot the line graph?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 17:21:35 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is already defined and contains the DataFrame
+# For demonstration, let's create the DataFrame from the provided data
+data = {
+    "Name": ["MeloettaAria Forme", "Numel", "Togepi"],
+    "HP": [104, 50, 95],
+    "Attack": [56, 29, 51],
+    "Defense": [50, 88, 84],
+    "Sp. Atk": [112, 86, 130],
+    "Sp. Def": [123, 41, 107],
+    "Speed": [33, 102, 50]
+}
+
+dfs = [pd.DataFrame(data)]
+
+# Select the attribute to plot (e.g., HP)
+attribute_to_plot = 'HP'
+names = dfs[0]['Name']
+values = dfs[0][attribute_to_plot]
+
+# Plotting the line graph
+plt.figure(figsize=(10, 5))
+plt.plot(names, values, marker='o')
+plt.title(f'{attribute_to_plot} of Pokémon')
+plt.xlabel('Pokémon Names')
+plt.ylabel(attribute_to_plot)
+plt.xticks(rotation=45)
+plt.grid()
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plot_filename = 'pokemon_hp_chart.png'
+plt.savefig(plot_filename)
+
+# Declare result var: 
+result = {
+    "type": "plot",
+    "value": plot_filename
+}
+            ```
+            
+2024-08-06 17:21:35 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:21:35 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:21:35 [INFO] Saving charts to D:\Mine\Graph-Chat-App\exports\charts\temp_chart.png
+2024-08-06 17:21:35 [INFO] 
+Code running:
+```
+data = {'Name': ['MeloettaAria Forme', 'Numel', 'Togepi'], 'HP': [104, 50, 95], 'Attack': [56, 29, 51], 'Defense': [50, 88, 84], 'Sp. Atk': [112, 86, 130], 'Sp. Def': [123, 41, 107], 'Speed': [33, 102, 50]}
+attribute_to_plot = 'HP'
+names = dfs[0]['Name']
+values = dfs[0][attribute_to_plot]
+plt.figure(figsize=(10, 5))
+plt.plot(names, values, marker='o')
+plt.title(f'{attribute_to_plot} of Pokémon')
+plt.xlabel('Pokémon Names')
+plt.ylabel(attribute_to_plot)
+plt.xticks(rotation=45)
+plt.grid()
+plt.tight_layout()
+plot_filename = 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'
+plt.savefig(plot_filename)
+result = {'type': 'plot', 'value': plot_filename}
+        ```
+2024-08-06 17:21:35 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:21:39 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:21:39 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+2024-08-06 17:21:39 [INFO] Executing Step 8: ResultParsing
+2024-08-06 17:22:19 [INFO] Question: plot the line graph on any two columns
+2024-08-06 17:22:19 [INFO] Running PandasAI with openai LLM...
+2024-08-06 17:22:19 [INFO] Prompt ID: 1e1e38e6-1b9a-425d-a5ee-afa1c64b86ab
+2024-08-06 17:22:19 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 17:22:19 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 17:22:19 [INFO] Executing Step 1: CacheLookup
+2024-08-06 17:22:19 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 17:22:19 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+498,Clawitzer,Ground,Grass,485,74,58,59,20,86,88,5,True
+714,Banette,Psychic,,579,52,88,61,63,77,89,3,False
+376,AmpharosMega Ampharos,Fairy,Steel,428,43,94,58,23,51,58,6,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot the line graph on any two columns
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 17:22:19 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 17:22:31 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 17:22:31 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+498,Clawitzer,Ground,Grass,485,74,58,59,20,86,88,5,True
+714,Banette,Psychic,,579,52,88,61,63,77,89,3,False
+376,AmpharosMega Ampharos,Fairy,Steel,428,43,94,58,23,51,58,6,True
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ plot the line graph on any two columns
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 17:22:31 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming dfs is already defined and contains the DataFrame
+# For demonstration, let's create a sample DataFrame similar to the one described
+data = {
+    'Name': ['Clawitzer', 'Banette', 'AmpharosMega Ampharos'],
+    'Total': [485, 579, 428],
+    'HP': [74, 52, 43],
+    'Attack': [58, 88, 94],
+    'Defense': [59, 61, 58],
+    'Sp. Atk': [20, 63, 23],
+    'Sp. Def': [86, 77, 51],
+    'Speed': [88, 89, 58],
+    'Generation': [5, 3, 6],
+    'Legendary': [True, False, True]
+}
+
+dfs = [pd.DataFrame(data)]
+
+# Select two columns to plot
+x_column = 'Total'
+y_column = 'HP'
+
+# Plotting the line graph
+plt.figure(figsize=(10, 5))
+plt.plot(dfs[0][x_column], dfs[0][y_column], marker='o')
+plt.title('Line Graph of Total vs HP')
+plt.xlabel('Total')
+plt.ylabel('HP')
+plt.grid()
+plt.savefig('line_graph.png')  # Save the plot as a PNG file
+plt.close()  # Close the plot to free up memory
+
+# Declare result var: 
+result = {
+    "type": "plot",
+    "value": "line_graph.png"
+}
+            ```
+            
+2024-08-06 17:22:31 [INFO] Executing Step 4: CachePopulation
+2024-08-06 17:22:31 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 17:22:31 [INFO] Saving charts to D:\Mine\Graph-Chat-App\exports\charts\temp_chart.png
+2024-08-06 17:22:31 [INFO] 
+Code running:
+```
+data = {'Name': ['Clawitzer', 'Banette', 'AmpharosMega Ampharos'], 'Total': [485, 579, 428], 'HP': [74, 52, 43], 'Attack': [58, 88, 94], 'Defense': [59, 61, 58], 'Sp. Atk': [20, 63, 23], 'Sp. Def': [86, 77, 51], 'Speed': [88, 89, 58], 'Generation': [5, 3, 6], 'Legendary': [True, False, True]}
+x_column = 'Total'
+y_column = 'HP'
+plt.figure(figsize=(10, 5))
+plt.plot(dfs[0][x_column], dfs[0][y_column], marker='o')
+plt.title('Line Graph of Total vs HP')
+plt.xlabel('Total')
+plt.ylabel('HP')
+plt.grid()
+plt.savefig('D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png')
+plt.close()
+result = {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+        ```
+2024-08-06 17:22:31 [INFO] Executing Step 6: CodeExecution
+2024-08-06 17:22:32 [INFO] Executing Step 7: ResultValidation
+2024-08-06 17:22:32 [INFO] Answer: {'type': 'plot', 'value': 'D:/Mine/Graph-Chat-App/exports/charts/temp_chart.png'}
+2024-08-06 17:22:32 [INFO] Executing Step 8: ResultParsing
+2024-08-06 18:07:10 [INFO] Question: how many columns in this dataset?
+2024-08-06 18:07:10 [INFO] Running PandasAI with openai LLM...
+2024-08-06 18:07:10 [INFO] Prompt ID: b168aa69-4a8f-40fd-ac44-3bd971637beb
+2024-08-06 18:07:10 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 18:07:11 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 18:07:11 [INFO] Executing Step 1: CacheLookup
+2024-08-06 18:07:11 [INFO] Using cached response
+2024-08-06 18:07:11 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 18:07:11 [INFO] Executing Step 2: Skipping...
+2024-08-06 18:07:11 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 18:07:11 [INFO] Executing Step 3: Skipping...
+2024-08-06 18:07:11 [INFO] Executing Step 4: CachePopulation
+2024-08-06 18:07:11 [INFO] Executing Step 4: Skipping...
+2024-08-06 18:07:11 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 18:07:11 [INFO] 
+Code running:
+```
+num_columns = dfs[0].shape[1]
+result = {'type': 'number', 'value': num_columns}
+        ```
+2024-08-06 18:07:11 [INFO] Executing Step 6: CodeExecution
+2024-08-06 18:07:11 [INFO] Executing Step 7: ResultValidation
+2024-08-06 18:07:11 [INFO] Answer: {'type': 'number', 'value': 13}
+2024-08-06 18:07:11 [INFO] Executing Step 8: ResultParsing
+2024-08-06 18:08:08 [INFO] Question: how mnay columns in this dataset?
+2024-08-06 18:08:08 [INFO] Running PandasAI with openai LLM...
+2024-08-06 18:08:08 [INFO] Prompt ID: 04ceb434-a583-4a12-bcb1-88ee6be39ed8
+2024-08-06 18:08:08 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 18:08:08 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 18:08:08 [INFO] Executing Step 1: CacheLookup
+2024-08-06 18:08:08 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 18:08:08 [INFO] Using prompt: <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+327,Klefki,Water,Flying,365,31,95,100,91,102,118,5,False
+171,Mewtwo,Fire,Fairy,483,95,134,129,46,113,29,4,True
+703,SlowbroMega Slowbro,Flying,,380,150,52,62,40,129,67,2,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ how mnay columns in this dataset?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-08-06 18:08:09 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 18:08:12 [INFO] HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-08-06 18:08:12 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:800x13
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary
+327,Klefki,Water,Flying,365,31,95,100,91,102,118,5,False
+171,Mewtwo,Fire,Fairy,483,95,134,129,46,113,29,4,True
+703,SlowbroMega Slowbro,Flying,,380,150,52,62,40,129,67,2,False
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ how mnay columns in this dataset?
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-08-06 18:08:12 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Assuming dfs is already declared and contains the DataFrame
+# For example, let's say dfs = [pd.DataFrame(...), ...]
+
+# Count the number of columns in the first DataFrame
+num_columns = dfs[0].shape[1]
+
+# Declare result var: 
+result = {
+    "type": "number",
+    "value": num_columns
+}
+            ```
+            
+2024-08-06 18:08:12 [INFO] Executing Step 4: CachePopulation
+2024-08-06 18:08:12 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 18:08:12 [INFO] 
+Code running:
+```
+num_columns = dfs[0].shape[1]
+result = {'type': 'number', 'value': num_columns}
+        ```
+2024-08-06 18:08:12 [INFO] Executing Step 6: CodeExecution
+2024-08-06 18:08:12 [INFO] Executing Step 7: ResultValidation
+2024-08-06 18:08:12 [INFO] Answer: {'type': 'number', 'value': 13}
+2024-08-06 18:08:12 [INFO] Executing Step 8: ResultParsing
+2024-08-06 18:09:55 [INFO] Question: how many columns in this dataset?
+2024-08-06 18:09:55 [INFO] Running PandasAI with openai LLM...
+2024-08-06 18:09:55 [INFO] Prompt ID: 075475ce-bc5c-4d48-9151-18cc6e53b9f6
+2024-08-06 18:09:55 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 18:09:55 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 18:09:55 [INFO] Executing Step 1: CacheLookup
+2024-08-06 18:09:55 [INFO] Using cached response
+2024-08-06 18:09:55 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 18:09:55 [INFO] Executing Step 2: Skipping...
+2024-08-06 18:09:55 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 18:09:55 [INFO] Executing Step 3: Skipping...
+2024-08-06 18:09:55 [INFO] Executing Step 4: CachePopulation
+2024-08-06 18:09:55 [INFO] Executing Step 4: Skipping...
+2024-08-06 18:09:55 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 18:09:55 [INFO] 
+Code running:
+```
+num_columns = dfs[0].shape[1]
+result = {'type': 'number', 'value': num_columns}
+        ```
+2024-08-06 18:09:55 [INFO] Executing Step 6: CodeExecution
+2024-08-06 18:09:55 [INFO] Executing Step 7: ResultValidation
+2024-08-06 18:09:55 [INFO] Answer: {'type': 'number', 'value': 13}
+2024-08-06 18:09:55 [INFO] Executing Step 8: ResultParsing
+2024-08-06 18:10:42 [INFO] Question: how many columns in this dataset?
+2024-08-06 18:10:42 [INFO] Running PandasAI with openai LLM...
+2024-08-06 18:10:42 [INFO] Prompt ID: d297c83e-40d9-4f47-914a-bc0a43552dbe
+2024-08-06 18:10:42 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-08-06 18:10:42 [INFO] Executing Step 0: ValidatePipelineInput
+2024-08-06 18:10:42 [INFO] Executing Step 1: CacheLookup
+2024-08-06 18:10:42 [INFO] Using cached response
+2024-08-06 18:10:42 [INFO] Executing Step 2: PromptGeneration
+2024-08-06 18:10:42 [INFO] Executing Step 2: Skipping...
+2024-08-06 18:10:42 [INFO] Executing Step 3: CodeGenerator
+2024-08-06 18:10:42 [INFO] Executing Step 3: Skipping...
+2024-08-06 18:10:42 [INFO] Executing Step 4: CachePopulation
+2024-08-06 18:10:42 [INFO] Executing Step 4: Skipping...
+2024-08-06 18:10:43 [INFO] Executing Step 5: CodeCleaning
+2024-08-06 18:10:43 [INFO] 
+Code running:
+```
+num_columns = dfs[0].shape[1]
+result = {'type': 'number', 'value': num_columns}
+        ```
+2024-08-06 18:10:43 [INFO] Executing Step 6: CodeExecution
+2024-08-06 18:10:43 [INFO] Executing Step 7: ResultValidation
+2024-08-06 18:10:43 [INFO] Answer: {'type': 'number', 'value': 13}
+2024-08-06 18:10:43 [INFO] Executing Step 8: ResultParsing
